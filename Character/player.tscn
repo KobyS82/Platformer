@@ -248,8 +248,9 @@ script = ExtResource("1_20lvu")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_flgpq")
-animation = &"idle"
+animation = &"run"
 autoplay = "idle"
+frame_progress = 0.0683752
 centered = false
 offset = Vector2(-25, -23.5)
 
