@@ -79,6 +79,8 @@ func land():
 	animated_sprite.play("jump_end")
 	animation_locked = true
 
+func test():
+	pass
 
 
 
