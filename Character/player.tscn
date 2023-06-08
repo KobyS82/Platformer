@@ -227,7 +227,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"jump_end",
-"speed": 10.0
+"speed": 15.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -293,7 +293,7 @@ script = ExtResource("1_20lvu")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_flgpq")
-animation = &"idle"
+animation = &"jump_end"
 autoplay = "idle"
 centered = false
 offset = Vector2(-25, -23.5)
