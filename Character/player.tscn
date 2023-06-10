@@ -454,13 +454,14 @@ anim_player = NodePath("../AnimationPlayer")
 parameters/playback = SubResource("AnimationNodeStateMachinePlayback_1xv2o")
 parameters/Move/blend_position = -0.000870347
 
-[node name="CharacterStateMachine" type="Node" parent="." node_paths=PackedStringArray("current_state")]
+[node name="CharacterStateMachine" type="Node" parent="." node_paths=PackedStringArray("character", "current_state")]
 script = ExtResource("6_iuf56")
+character = NodePath("..")
 current_state = NodePath("Ground")
 
-[node name="Ground" type="Node" parent="CharacterStateMachine"]
+[node name="Ground" type="Node" parent="CharacterStateMachine" node_paths=PackedStringArray("air_state")]
 script = ExtResource("7_i0ml2")
-can_move = false
+air_state = NodePath("../Air")
 
 [node name="Air" type="Node" parent="CharacterStateMachine"]
 script = ExtResource("8_37all")

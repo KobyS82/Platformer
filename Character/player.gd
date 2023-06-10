@@ -2,7 +2,6 @@ extends CharacterBody2D
 
 
 @export var speed : float = 200.0
-@export var jump_velocity : float = -150.0
 @export var double_jump_velocity : float = -100.0
 
 @onready var sprite : Sprite2D = $Sprite2D
@@ -34,7 +33,8 @@ func _physics_process(delta):
 	if Input.is_action_just_pressed("jump"):
 		if is_on_floor():
 			# Normal jump on floor
-			jump()
+#			jump()
+			pass
 		elif not has_double_jumped:
 			# Double jump in air
 			double_jump()
@@ -59,11 +59,6 @@ func update_facing_direction():
 		sprite.flip_h = false
 	elif direction.x < 0:
 		sprite.flip_h = true
-		
-func jump():
-	velocity.y = jump_velocity
-#	animated_sprite.play("jump_start")
-	animation_locked = true
 
 func double_jump():
 	velocity.y = double_jump_velocity
