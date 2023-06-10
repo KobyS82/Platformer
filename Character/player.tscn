@@ -1,4 +1,4 @@
-[gd_scene load_steps=62 format=3 uid="uid://dpvnl2r8umfw"]
+[gd_scene load_steps=70 format=3 uid="uid://dpvnl2r8umfw"]
 
 [ext_resource type="Texture2D" uid="uid://btxiau0r7fmq1" path="res://Art/AssetPack-V1/Sprite Sheets/Character Idle 48x48.png" id="1_6qlk8"]
 [ext_resource type="Script" path="res://Character/player.gd" id="1_20lvu"]
@@ -538,13 +538,41 @@ blend_point_2/node = SubResource("AnimationNodeAnimation_dh0d3")
 blend_point_2/pos = -1.0
 blend_mode = 1
 
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_uw0lx"]
+animation = &"double_jump"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_dhwpc"]
+animation = &"jump_end"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_ibjx5"]
+animation = &"jump_start"
+
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_o6ryi"]
 advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_km70u"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_8343j"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_spc5p"]
+switch_mode = 2
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_6ylx0"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_1m81a"]
 
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_hakgs"]
 states/Move/node = SubResource("AnimationNodeBlendSpace1D_qgxkq")
 states/Move/position = Vector2(379, 100)
-transitions = ["Start", "Move", SubResource("AnimationNodeStateMachineTransition_o6ryi")]
+states/double_jump/node = SubResource("AnimationNodeAnimation_uw0lx")
+states/double_jump/position = Vector2(560, 24)
+states/jump_end/node = SubResource("AnimationNodeAnimation_dhwpc")
+states/jump_end/position = Vector2(560, 100)
+states/jump_start/node = SubResource("AnimationNodeAnimation_ibjx5")
+states/jump_start/position = Vector2(379, 29)
+transitions = ["Start", "Move", SubResource("AnimationNodeStateMachineTransition_o6ryi"), "Move", "jump_start", SubResource("AnimationNodeStateMachineTransition_km70u"), "jump_start", "jump_end", SubResource("AnimationNodeStateMachineTransition_8343j"), "jump_end", "Move", SubResource("AnimationNodeStateMachineTransition_spc5p"), "jump_start", "double_jump", SubResource("AnimationNodeStateMachineTransition_6ylx0"), "double_jump", "jump_end", SubResource("AnimationNodeStateMachineTransition_1m81a")]
+graph_offset = Vector2(-1, -34)
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id="AnimationNodeStateMachinePlayback_1xv2o"]
 
@@ -579,14 +607,16 @@ anim_player = NodePath("../AnimationPlayer")
 parameters/playback = SubResource("AnimationNodeStateMachinePlayback_1xv2o")
 parameters/Move/blend_position = -0.000870347
 
-[node name="CharacterStateMachine" type="Node" parent="." node_paths=PackedStringArray("character", "current_state")]
+[node name="CharacterStateMachine" type="Node" parent="." node_paths=PackedStringArray("character", "animation_tree", "current_state")]
 script = ExtResource("6_iuf56")
 character = NodePath("..")
+animation_tree = NodePath("../AnimationTree")
 current_state = NodePath("Ground")
 
 [node name="Ground" type="Node" parent="CharacterStateMachine" node_paths=PackedStringArray("air_state")]
 script = ExtResource("7_i0ml2")
 air_state = NodePath("../Air")
+jump_animation = "jump_start"
 
 [node name="Air" type="Node" parent="CharacterStateMachine" node_paths=PackedStringArray("ground_state")]
 script = ExtResource("8_37all")
