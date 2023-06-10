@@ -1,10 +1,14 @@
-[gd_scene load_steps=50 format=3 uid="uid://dpvnl2r8umfw"]
+[gd_scene load_steps=58 format=3 uid="uid://dpvnl2r8umfw"]
 
 [ext_resource type="Texture2D" uid="uid://btxiau0r7fmq1" path="res://Art/AssetPack-V1/Sprite Sheets/Character Idle 48x48.png" id="1_6qlk8"]
 [ext_resource type="Script" path="res://Character/player.gd" id="1_20lvu"]
 [ext_resource type="Texture2D" uid="uid://fuv5kye8j7gf" path="res://Art/AssetPack-V1/Sprite Sheets/player land 48x48.png" id="3_84qdv"]
 [ext_resource type="Texture2D" uid="uid://kws2k4xqsg1k" path="res://Art/AssetPack-V1/Sprite Sheets/player jump 48x48.png" id="4_b08lk"]
 [ext_resource type="Texture2D" uid="uid://bv7d6akdp8o6t" path="res://Art/AssetPack-V1/Sprite Sheets/run cycle 48x48.png" id="5_2fnwr"]
+[ext_resource type="Script" path="res://Character/CharacterStateMachine.gd" id="6_iuf56"]
+[ext_resource type="Script" path="res://Character/GroundState.gd" id="7_i0ml2"]
+[ext_resource type="Script" path="res://Character/AirState.gd" id="8_37all"]
+[ext_resource type="Script" path="res://Character/LandingState.gd" id="9_pb8em"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_g8p7b"]
 atlas = ExtResource("1_6qlk8")
@@ -391,11 +395,31 @@ _data = {
 "run": SubResource("Animation_4gx30")
 }
 
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_sp4ty"]
+animation = &"idle"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_j3y86"]
+animation = &"run"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_dh0d3"]
+animation = &"run"
+
 [sub_resource type="AnimationNodeBlendSpace1D" id="AnimationNodeBlendSpace1D_qgxkq"]
+blend_point_0/node = SubResource("AnimationNodeAnimation_sp4ty")
+blend_point_0/pos = 0.0
+blend_point_1/node = SubResource("AnimationNodeAnimation_j3y86")
+blend_point_1/pos = 1.0
+blend_point_2/node = SubResource("AnimationNodeAnimation_dh0d3")
+blend_point_2/pos = -1.0
+blend_mode = 1
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_o6ryi"]
+advance_mode = 2
 
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_hakgs"]
 states/Move/node = SubResource("AnimationNodeBlendSpace1D_qgxkq")
 states/Move/position = Vector2(379, 100)
+transitions = ["Start", "Move", SubResource("AnimationNodeStateMachineTransition_o6ryi")]
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id="AnimationNodeStateMachinePlayback_1xv2o"]
 
@@ -403,6 +427,7 @@ states/Move/position = Vector2(379, 100)
 script = ExtResource("1_20lvu")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+visible = false
 sprite_frames = SubResource("SpriteFrames_flgpq")
 animation = &"idle"
 autoplay = "idle"
@@ -427,6 +452,21 @@ libraries = {
 tree_root = SubResource("AnimationNodeStateMachine_hakgs")
 anim_player = NodePath("../AnimationPlayer")
 parameters/playback = SubResource("AnimationNodeStateMachinePlayback_1xv2o")
-parameters/Move/blend_position = 0
+parameters/Move/blend_position = -0.000870347
+
+[node name="CharacterStateMachine" type="Node" parent="." node_paths=PackedStringArray("current_state")]
+script = ExtResource("6_iuf56")
+current_state = NodePath("Ground")
+
+[node name="Ground" type="Node" parent="CharacterStateMachine"]
+script = ExtResource("7_i0ml2")
+can_move = false
+
+[node name="Air" type="Node" parent="CharacterStateMachine"]
+script = ExtResource("8_37all")
+
+[node name="Landing" type="Node" parent="CharacterStateMachine"]
+script = ExtResource("9_pb8em")
+can_move = false
 
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
