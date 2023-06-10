@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://dmkojrnjfis65"]
+[gd_scene load_steps=6 format=3 uid="uid://dmkojrnjfis65"]
 
 [ext_resource type="Texture2D" uid="uid://byynbbkiqfn8x" path="res://Art/Pixel Art Platformer - Village Props v2.3.0/Texture/TX Tileset Ground.png" id="1_gsw5c"]
 [ext_resource type="PackedScene" uid="uid://dpvnl2r8umfw" path="res://Character/player.tscn" id="2_863o4"]
+[ext_resource type="Texture2D" uid="uid://cfgadrvfy58lq" path="res://Art/Windrise Background/windrise-background.png" id="3_e5lcm"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_oivqp"]
 texture = ExtResource("1_gsw5c")
@@ -2024,7 +2025,7 @@ physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_oivqp")
 
 [node name="TestLevel" type="Node2D"]
-position = Vector2(315, 49)
+position = Vector2(338, 37)
 scale = Vector2(0.995097, 1.00109)
 
 [node name="TileMap" type="TileMap" parent="."]
@@ -2049,3 +2050,12 @@ process_callback = 0
 position_smoothing_enabled = true
 drag_horizontal_enabled = true
 drag_vertical_enabled = true
+
+[node name="TextureRect" type="TextureRect" parent="."]
+z_index = -3
+offset_left = -408.0
+offset_top = -105.885
+offset_right = -26.0004
+offset_bottom = 37.1154
+texture = ExtResource("3_e5lcm")
+expand_mode = 1
