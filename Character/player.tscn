@@ -1,4 +1,4 @@
-[gd_scene load_steps=58 format=3 uid="uid://dpvnl2r8umfw"]
+[gd_scene load_steps=59 format=3 uid="uid://dpvnl2r8umfw"]
 
 [ext_resource type="Texture2D" uid="uid://btxiau0r7fmq1" path="res://Art/AssetPack-V1/Sprite Sheets/Character Idle 48x48.png" id="1_6qlk8"]
 [ext_resource type="Script" path="res://Character/player.gd" id="1_20lvu"]
@@ -9,6 +9,7 @@
 [ext_resource type="Script" path="res://Character/GroundState.gd" id="7_i0ml2"]
 [ext_resource type="Script" path="res://Character/AirState.gd" id="8_37all"]
 [ext_resource type="Script" path="res://Character/LandingState.gd" id="9_pb8em"]
+[ext_resource type="Script" path="res://Character/StateDebugLabel.gd" id="10_eaard"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_g8p7b"]
 atlas = ExtResource("1_6qlk8")
@@ -463,11 +464,21 @@ current_state = NodePath("Ground")
 script = ExtResource("7_i0ml2")
 air_state = NodePath("../Air")
 
-[node name="Air" type="Node" parent="CharacterStateMachine"]
+[node name="Air" type="Node" parent="CharacterStateMachine" node_paths=PackedStringArray("ground_state")]
 script = ExtResource("8_37all")
+ground_state = NodePath("../Ground")
 
 [node name="Landing" type="Node" parent="CharacterStateMachine"]
 script = ExtResource("9_pb8em")
 can_move = false
+
+[node name="StateDebugLabel" type="Label" parent="." node_paths=PackedStringArray("state_machine")]
+offset_left = -53.0
+offset_top = -41.0
+offset_right = 56.0
+offset_bottom = -15.0
+text = "State: "
+script = ExtResource("10_eaard")
+state_machine = NodePath("../CharacterStateMachine")
 
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]

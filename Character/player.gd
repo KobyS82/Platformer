@@ -2,7 +2,6 @@ extends CharacterBody2D
 
 
 @export var speed : float = 200.0
-@export var double_jump_velocity : float = -100.0
 
 @onready var sprite : Sprite2D = $Sprite2D
 @onready var animation_tree : AnimationTree = $AnimationTree
@@ -29,16 +28,6 @@ func _physics_process(delta):
 			land()
 		was_in_air = false
 
-	# Handle Jump.
-	if Input.is_action_just_pressed("jump"):
-		if is_on_floor():
-			# Normal jump on floor
-#			jump()
-			pass
-		elif not has_double_jumped:
-			# Double jump in air
-			double_jump()
-
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
 	direction = Input.get_vector("left", "right", "up", "down")
@@ -60,12 +49,6 @@ func update_facing_direction():
 	elif direction.x < 0:
 		sprite.flip_h = true
 
-func double_jump():
-	velocity.y = double_jump_velocity
-#	animated_sprite.play("jump_double")
-	animation_locked = true
-	has_double_jumped = true
-	
 
 func land():
 #	animated_sprite.play("jump_end")
