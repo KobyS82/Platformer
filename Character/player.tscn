@@ -1,4 +1,4 @@
-[gd_scene load_steps=48 format=3 uid="uid://dpvnl2r8umfw"]
+[gd_scene load_steps=49 format=3 uid="uid://dpvnl2r8umfw"]
 
 [ext_resource type="Texture2D" uid="uid://btxiau0r7fmq1" path="res://Art/AssetPack-V1/Sprite Sheets/Character Idle 48x48.png" id="1_6qlk8"]
 [ext_resource type="Script" path="res://Character/player.gd" id="1_20lvu"]
@@ -235,46 +235,6 @@ tracks/2/keys = {
 "values": [0, 1, 2, 3, 4, 5, 6, 7]
 }
 
-[sub_resource type="Animation" id="Animation_hlg1k"]
-resource_name = "punch"
-length = 0.8
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:texture")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [ExtResource("7_d8717")]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Sprite2D:hframes")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [8]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Sprite2D:frame")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
-"update": 1,
-"values": [0, 1, 2, 3, 4, 5, 6, 7]
-}
-
 [sub_resource type="Animation" id="Animation_nrrok"]
 resource_name = "swipe"
 length = 0.6
@@ -314,6 +274,122 @@ tracks/2/keys = {
 "update": 1,
 "values": [0, 1, 2, 3, 4, 5]
 }
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Sprite2D:offset")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.6),
+"transitions": PackedFloat32Array(0, 0),
+"update": 0,
+"values": [Vector2(-8, -8), Vector2(8, 8)]
+}
+
+[sub_resource type="Animation" id="Animation_lx83x"]
+resource_name = "punch2"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("7_d8717")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:hframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [8]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [4, 5, 6, 7]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Sprite2D:offset")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(0, 0),
+"update": 0,
+"values": [Vector2(-8, -8), Vector2(8, 8)]
+}
+
+[sub_resource type="Animation" id="Animation_hlg1k"]
+resource_name = "punch1"
+length = 0.8
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("7_d8717")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:hframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [8]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Sprite2D:offset")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.8),
+"transitions": PackedFloat32Array(0, 0),
+"update": 0,
+"values": [Vector2(-8, -8), Vector2(8, 8)]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_7jesx"]
 _data = {
@@ -322,10 +398,20 @@ _data = {
 "idle": SubResource("Animation_xev0a"),
 "jump_end": SubResource("Animation_xldl3"),
 "jump_start": SubResource("Animation_0h3t4"),
-"punch": SubResource("Animation_hlg1k"),
+"punch1": SubResource("Animation_hlg1k"),
+"punch2": SubResource("Animation_lx83x"),
 "run": SubResource("Animation_4gx30"),
 "swipe": SubResource("Animation_nrrok")
 }
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_uw0lx"]
+animation = &"double_jump"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_dhwpc"]
+animation = &"jump_end"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_ibjx5"]
+animation = &"jump_start"
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_sp4ty"]
 animation = &"idle"
@@ -345,20 +431,11 @@ blend_point_2/node = SubResource("AnimationNodeAnimation_dh0d3")
 blend_point_2/pos = -1.0
 blend_mode = 1
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_uw0lx"]
-animation = &"double_jump"
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_dhwpc"]
-animation = &"jump_end"
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_ibjx5"]
-animation = &"jump_start"
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_hf3ll"]
+animation = &"punch1"
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_ctuep"]
-animation = &"punch"
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_hf3ll"]
-animation = &"punch"
+animation = &"punch2"
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_wjy86"]
 animation = &"swipe"
@@ -391,22 +468,22 @@ advance_mode = 2
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_a2s73"]
 
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_hakgs"]
-states/Move/node = SubResource("AnimationNodeBlendSpace1D_qgxkq")
-states/Move/position = Vector2(379, 100)
 states/double_jump/node = SubResource("AnimationNodeAnimation_uw0lx")
 states/double_jump/position = Vector2(560, 24)
 states/jump_end/node = SubResource("AnimationNodeAnimation_dhwpc")
 states/jump_end/position = Vector2(560, 100)
 states/jump_start/node = SubResource("AnimationNodeAnimation_ibjx5")
 states/jump_start/position = Vector2(379, 29)
-states/punch/node = SubResource("AnimationNodeAnimation_hf3ll")
-states/punch/position = Vector2(348, 170)
-"states/punch 2/node" = SubResource("AnimationNodeAnimation_ctuep")
-"states/punch 2/position" = Vector2(474, 170)
+states/move/node = SubResource("AnimationNodeBlendSpace1D_qgxkq")
+states/move/position = Vector2(379, 100)
+states/punch1/node = SubResource("AnimationNodeAnimation_hf3ll")
+states/punch1/position = Vector2(348, 170)
+states/punch2/node = SubResource("AnimationNodeAnimation_ctuep")
+states/punch2/position = Vector2(474, 170)
 states/swipe/node = SubResource("AnimationNodeAnimation_wjy86")
 states/swipe/position = Vector2(605, 170)
-transitions = ["Start", "Move", SubResource("AnimationNodeStateMachineTransition_o6ryi"), "Move", "jump_start", SubResource("AnimationNodeStateMachineTransition_km70u"), "jump_start", "jump_end", SubResource("AnimationNodeStateMachineTransition_8343j"), "jump_end", "Move", SubResource("AnimationNodeStateMachineTransition_spc5p"), "jump_start", "double_jump", SubResource("AnimationNodeStateMachineTransition_6ylx0"), "double_jump", "jump_end", SubResource("AnimationNodeStateMachineTransition_1m81a"), "Move", "punch", SubResource("AnimationNodeStateMachineTransition_sdtd8"), "punch", "Move", SubResource("AnimationNodeStateMachineTransition_41jvs"), "punch", "punch 2", SubResource("AnimationNodeStateMachineTransition_5dvdi"), "punch 2", "swipe", SubResource("AnimationNodeStateMachineTransition_3eri5"), "swipe", "Move", SubResource("AnimationNodeStateMachineTransition_i3qf8"), "punch 2", "Move", SubResource("AnimationNodeStateMachineTransition_a2s73")]
-graph_offset = Vector2(-2, 12)
+transitions = ["Start", "move", SubResource("AnimationNodeStateMachineTransition_o6ryi"), "move", "jump_start", SubResource("AnimationNodeStateMachineTransition_km70u"), "jump_start", "jump_end", SubResource("AnimationNodeStateMachineTransition_8343j"), "jump_end", "move", SubResource("AnimationNodeStateMachineTransition_spc5p"), "jump_start", "double_jump", SubResource("AnimationNodeStateMachineTransition_6ylx0"), "double_jump", "jump_end", SubResource("AnimationNodeStateMachineTransition_1m81a"), "move", "punch1", SubResource("AnimationNodeStateMachineTransition_sdtd8"), "punch1", "move", SubResource("AnimationNodeStateMachineTransition_41jvs"), "punch1", "punch2", SubResource("AnimationNodeStateMachineTransition_5dvdi"), "punch2", "swipe", SubResource("AnimationNodeStateMachineTransition_3eri5"), "swipe", "move", SubResource("AnimationNodeStateMachineTransition_i3qf8"), "punch2", "move", SubResource("AnimationNodeStateMachineTransition_a2s73")]
+graph_offset = Vector2(-40, 20)
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id="AnimationNodeStateMachinePlayback_1xv2o"]
 
@@ -419,9 +496,10 @@ shape = SubResource("CapsuleShape2D_qmql6")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(-24, -24)
-texture = ExtResource("2_uknqn")
+texture = ExtResource("7_d8717")
 centered = false
-hframes = 6
+offset = Vector2(8, 8)
+hframes = 8
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -432,7 +510,7 @@ libraries = {
 tree_root = SubResource("AnimationNodeStateMachine_hakgs")
 anim_player = NodePath("../AnimationPlayer")
 parameters/playback = SubResource("AnimationNodeStateMachinePlayback_1xv2o")
-parameters/Move/blend_position = -0.000870347
+parameters/move/blend_position = -0.000870347
 
 [node name="CharacterStateMachine" type="Node" parent="." node_paths=PackedStringArray("character", "animation_tree", "current_state")]
 script = ExtResource("6_iuf56")
@@ -440,10 +518,11 @@ character = NodePath("..")
 animation_tree = NodePath("../AnimationTree")
 current_state = NodePath("Ground")
 
-[node name="Ground" type="Node" parent="CharacterStateMachine" node_paths=PackedStringArray("air_state")]
+[node name="Ground" type="Node" parent="CharacterStateMachine" node_paths=PackedStringArray("air_state", "attack_state")]
 script = ExtResource("7_i0ml2")
 air_state = NodePath("../Air")
 jump_animation = "jump_start"
+attack_state = NodePath("../Attack")
 
 [node name="Air" type="Node" parent="CharacterStateMachine" node_paths=PackedStringArray("landing_state")]
 script = ExtResource("8_37all")
@@ -456,9 +535,14 @@ landing_animation_name = "jump_end"
 ground_state = NodePath("../Ground")
 can_move = false
 
-[node name="Attack" type="Node" parent="CharacterStateMachine"]
+[node name="Attack" type="Node" parent="CharacterStateMachine" node_paths=PackedStringArray("return_state")]
 script = ExtResource("12_7nj4j")
+return_state = NodePath("../Ground")
 can_move = false
+
+[node name="Timer" type="Timer" parent="CharacterStateMachine/Attack"]
+wait_time = 0.4
+one_shot = true
 
 [node name="StateDebugLabel" type="Label" parent="." node_paths=PackedStringArray("state_machine")]
 offset_left = -53.0
@@ -470,3 +554,4 @@ script = ExtResource("10_eaard")
 state_machine = NodePath("../CharacterStateMachine")
 
 [connection signal="animation_finished" from="AnimationTree" to="CharacterStateMachine/Landing" method="_on_animation_tree_animation_finished"]
+[connection signal="animation_finished" from="AnimationTree" to="CharacterStateMachine/Attack" method="_on_animation_tree_animation_finished"]
