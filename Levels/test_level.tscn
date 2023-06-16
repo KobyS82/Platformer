@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://dmkojrnjfis65"]
+[gd_scene load_steps=7 format=3 uid="uid://dmkojrnjfis65"]
 
 [ext_resource type="Texture2D" uid="uid://byynbbkiqfn8x" path="res://Art/Pixel Art Platformer - Village Props v2.3.0/Texture/TX Tileset Ground.png" id="1_gsw5c"]
 [ext_resource type="PackedScene" uid="uid://dpvnl2r8umfw" path="res://Character/player.tscn" id="2_863o4"]
@@ -2024,6 +2024,8 @@ texture = ExtResource("1_gsw5c")
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_oivqp")
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hbkj2"]
+
 [node name="TestLevel" type="Node2D"]
 position = Vector2(0, -1)
 scale = Vector2(0.995097, 1.00109)
@@ -2059,3 +2061,10 @@ process_callback = 0
 position_smoothing_enabled = true
 drag_horizontal_enabled = true
 drag_vertical_enabled = true
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+position = Vector2(68.3351, 30.9662)
+scale = Vector2(0.999116, 0.996982)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+shape = SubResource("RectangleShape2D_hbkj2")
