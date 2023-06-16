@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://dmkojrnjfis65"]
+[gd_scene load_steps=7 format=3 uid="uid://btx7mirmtm2w2"]
 
 [ext_resource type="Texture2D" uid="uid://byynbbkiqfn8x" path="res://Art/Pixel Art Platformer - Village Props v2.3.0/Texture/TX Tileset Ground.png" id="1_gsw5c"]
-[ext_resource type="PackedScene" uid="uid://dpvnl2r8umfw" path="res://Character/player.tscn" id="2_863o4"]
+[ext_resource type="PackedScene" uid="uid://crum8t2ivyohv" path="res://Character/player.tscn" id="2_863o4"]
 [ext_resource type="Texture2D" uid="uid://cfgadrvfy58lq" path="res://Art/Windrise Background/windrise-background.png" id="3_e5lcm"]
+[ext_resource type="PackedScene" uid="uid://b5msjqfwxwpo3" path="res://Character/Enemies/Mushroom/mushroom.tscn" id="4_uxs08"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_oivqp"]
 texture = ExtResource("1_gsw5c")
@@ -2024,17 +2025,15 @@ texture = ExtResource("1_gsw5c")
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_oivqp")
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_hbkj2"]
-
 [node name="TestLevel" type="Node2D"]
 position = Vector2(0, -1)
 scale = Vector2(0.995097, 1.00109)
 
 [node name="TextureRect" type="TextureRect" parent="."]
-offset_left = -292.434
-offset_top = -175.808
-offset_right = 292.566
-offset_bottom = 43.1916
+offset_left = -291.429
+offset_top = -179.804
+offset_right = 293.571
+offset_bottom = 39.1956
 texture = ExtResource("3_e5lcm")
 expand_mode = 1
 metadata/_edit_use_anchors_ = true
@@ -2062,9 +2061,5 @@ position_smoothing_enabled = true
 drag_horizontal_enabled = true
 drag_vertical_enabled = true
 
-[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
-position = Vector2(68.3351, 30.9662)
-scale = Vector2(0.999116, 0.996982)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
-shape = SubResource("RectangleShape2D_hbkj2")
+[node name="Mushroom" parent="." instance=ExtResource("4_uxs08")]
+position = Vector2(119.586, 11.9869)
