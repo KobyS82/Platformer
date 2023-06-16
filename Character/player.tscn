@@ -258,6 +258,18 @@ tracks/3/keys = {
 "update": 0,
 "values": [Vector2(-8, -8), Vector2(8, 8)]
 }
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Punch:monitoring")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, false]
+}
 
 [sub_resource type="Animation" id="Animation_lx83x"]
 resource_name = "punch2"
@@ -300,15 +312,15 @@ tracks/2/keys = {
 }
 tracks/3/type = "value"
 tracks/3/imported = false
-tracks/3/enabled = false
-tracks/3/path = NodePath("Sprite2D:offset")
+tracks/3/enabled = true
+tracks/3/path = NodePath("Punch:monitoring")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.4),
-"transitions": PackedFloat32Array(0, 0),
-"update": 0,
-"values": [Vector2(-8, -8), Vector2(8, 8)]
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
 }
 
 [sub_resource type="Animation" id="Animation_4gx30"]
@@ -393,15 +405,15 @@ tracks/2/keys = {
 }
 tracks/3/type = "value"
 tracks/3/imported = false
-tracks/3/enabled = false
-tracks/3/path = NodePath("Sprite2D:offset")
+tracks/3/enabled = true
+tracks/3/path = NodePath("Punch:monitoring")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.6),
-"transitions": PackedFloat32Array(0, 0),
-"update": 0,
-"values": [Vector2(-8, -8), Vector2(8, 8)]
+"times": PackedFloat32Array(0.3, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_7jesx"]
@@ -511,9 +523,9 @@ position = Vector2(0, 1.5)
 shape = SubResource("CapsuleShape2D_qmql6")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_nu38r")
+texture = ExtResource("7_rvnuy")
 offset = Vector2(0, -4)
-hframes = 8
+hframes = 6
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
