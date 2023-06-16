@@ -3,7 +3,7 @@ extends Node
 class_name Damageable
 
 # Set var to emit globaly
-@export var health : float = 20 :
+@export var health : float = 40 :
 	get:
 		return health
 	set(value):
