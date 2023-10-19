@@ -11,9 +11,10 @@ grow_vertical = 2
 text = "1000
 "
 script = ExtResource("1_2ssg0")
+float_speed = Vector2(0, -60)
 
 [node name="Timer" type="Timer" parent="."]
-wait_time = 0.25
+wait_time = 0.4
 one_shot = true
 autostart = true
 

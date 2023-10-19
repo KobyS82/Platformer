@@ -1,11 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://btx7mirmtm2w2"]
+[gd_scene load_steps=8 format=3 uid="uid://btx7mirmtm2w2"]
 
 [ext_resource type="Texture2D" uid="uid://byynbbkiqfn8x" path="res://Art/Pixel Art Platformer - Village Props v2.3.0/Texture/TX Tileset Ground.png" id="1_gsw5c"]
 [ext_resource type="PackedScene" uid="uid://crum8t2ivyohv" path="res://Character/player.tscn" id="2_863o4"]
 [ext_resource type="Texture2D" uid="uid://cfgadrvfy58lq" path="res://Art/Windrise Background/windrise-background.png" id="3_e5lcm"]
 [ext_resource type="PackedScene" uid="uid://b5msjqfwxwpo3" path="res://Character/Enemies/Mushroom/mushroom.tscn" id="4_uxs08"]
 [ext_resource type="PackedScene" uid="uid://bceuiaknwisl8" path="res://UI/health_changed_manager.tscn" id="5_4b6on"]
-[ext_resource type="Script" path="res://UI/health_changed_manager.gd" id="6_8jq8j"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_oivqp"]
 texture = ExtResource("1_gsw5c")
@@ -2067,4 +2066,3 @@ drag_vertical_enabled = true
 position = Vector2(119.586, 11.9869)
 
 [node name="HealthChangedManager" parent="." instance=ExtResource("5_4b6on")]
-script = ExtResource("6_8jq8j")

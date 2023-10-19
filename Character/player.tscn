@@ -1,4 +1,4 @@
-[gd_scene load_steps=51 format=3 uid="uid://crum8t2ivyohv"]
+[gd_scene load_steps=50 format=3 uid="uid://crum8t2ivyohv"]
 
 [ext_resource type="Script" path="res://Character/player.gd" id="1_20lvu"]
 [ext_resource type="Texture2D" uid="uid://4labj35brbf2" path="res://Art/Player/Asset Pack-V3/Player Punch/Player Punch 64x64.png" id="2_nu38r"]
@@ -510,8 +510,6 @@ states/swipe/position = Vector2(605, 170)
 transitions = ["Start", "move", SubResource("AnimationNodeStateMachineTransition_o6ryi"), "move", "jump_start", SubResource("AnimationNodeStateMachineTransition_km70u"), "jump_start", "jump_end", SubResource("AnimationNodeStateMachineTransition_8343j"), "jump_end", "move", SubResource("AnimationNodeStateMachineTransition_spc5p"), "jump_start", "double_jump", SubResource("AnimationNodeStateMachineTransition_6ylx0"), "double_jump", "jump_end", SubResource("AnimationNodeStateMachineTransition_1m81a"), "move", "punch1", SubResource("AnimationNodeStateMachineTransition_sdtd8"), "punch1", "move", SubResource("AnimationNodeStateMachineTransition_41jvs"), "punch1", "punch2", SubResource("AnimationNodeStateMachineTransition_5dvdi"), "punch2", "swipe", SubResource("AnimationNodeStateMachineTransition_3eri5"), "swipe", "move", SubResource("AnimationNodeStateMachineTransition_i3qf8"), "punch2", "move", SubResource("AnimationNodeStateMachineTransition_a2s73")]
 graph_offset = Vector2(-40, 20)
 
-[sub_resource type="AnimationNodeStateMachinePlayback" id="AnimationNodeStateMachinePlayback_1xv2o"]
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_82nuy"]
 size = Vector2(26.5, 29)
 
@@ -535,7 +533,6 @@ libraries = {
 [node name="AnimationTree" type="AnimationTree" parent="."]
 tree_root = SubResource("AnimationNodeStateMachine_hakgs")
 anim_player = NodePath("../AnimationPlayer")
-parameters/playback = SubResource("AnimationNodeStateMachinePlayback_1xv2o")
 parameters/move/blend_position = -0.000870347
 
 [node name="CharacterStateMachine" type="Node" parent="." node_paths=PackedStringArray("character", "animation_tree", "current_state")]
